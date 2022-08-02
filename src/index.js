@@ -21,15 +21,14 @@ function onCountryInfo(event) {
     if(inputTrim === ""){
         countryList.innerHTML = ""
         countryInfo.innerHTML = ""
-        return;
-    } else { 
-        return fetchCountries(inputTrim)
-    .then(countries => renderCountryItem(countries))
-    .catch(error => {
+        return
+    }
+     return fetchCountries(inputTrim)
+     .then(countries => renderCountryItem(countries))
+     .catch(error => {
         console.log(error)
          Notify.failure('Oops, there is no country with that name');
     })
- }
 };
 
 
