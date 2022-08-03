@@ -19,18 +19,18 @@ input.addEventListener("input",debounce(onCountryInfo,DEBOUNCE_DELAY));
 function onCountryInfo(event) {
     const inputTrim = event.target.value.trim()
     if(inputTrim === ""){
-        countryList.innerHTML = ""
-        countryInfo.innerHTML = ""
+        countryList.innerHTML = "";
+        countryInfo.innerHTML = "";
         return
-    }
+    }else {
      return fetchCountries(inputTrim)
      .then(countries => renderCountryItem(countries))
      .catch(error => {
         console.log(error)
          Notify.failure('Oops, there is no country with that name');
     })
+  }
 };
-
 
 function renderCountryItem(countries){
     if(countries.length > 1) {
@@ -41,8 +41,8 @@ function renderCountryItem(countries){
         countryInfo.innerHTML = ""
     }
     if(countries.length > 10) {
-        countryList.innerHTML = ""
-        countryInfo.innerHTML = ""
+        countryList.innerHTML = "";
+        countryInfo.innerHTML = "";
          Notify.info('Too many matches found. Please enter a more specific name.')
     }
     if(countries.length === 1) {
@@ -52,7 +52,7 @@ function renderCountryItem(countries){
             <p> Population: ${population}</p>
             <p> Languages: ${languages[0].name}</p>`
         }).join("");
-        countryList.innerHTML = ""
-        countryInfo.innerHTML = renderInfo
+        countryList.innerHTML = "";
+        countryInfo.innerHTML = renderInfo;
     }
 }
