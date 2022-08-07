@@ -51,8 +51,7 @@ function newCountryList(country) {
           <li class="country-list__item">
               <img class="country-list__flag" src="${flags.svg}" alt="${name.official}">
               <h2 class="country-list__name">${name.official}</h2>
-          </li>
-          `;
+          </li>`;
       return layout;
     })
     .join("");
@@ -79,8 +78,7 @@ function newCountryInfo(country) {
               languages,
             ).join(", ")}
             </li>
-        </ul>
-        `;
+        </ul>`;
       return layout;
     })
     .join("");
